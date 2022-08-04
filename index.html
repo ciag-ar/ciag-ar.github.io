@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html>
+<head>	
+	<title>Ciag.ar</title>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="keywords" content="Ciag.ar">
+	<meta name="doneBy" content="gmarionahuel">
+	<link rel="icon" href="https://cdn-icons-png.flaticon.com/512/8173/8173742.png">
+	<link rel="stylesheet" href="font.css">
+	<link rel="stylesheet" type="text/css" href="index.css">
+    
+</head>
+
+
+
+<body>
+<header>
+ 	<div class="header" id="header">
+            <a class="logo" href="products.html"><img src="https://i.im.ge/2022/08/04/F39vCG.logo60.jpg" alt="Logo de Ciag.ar"></a>	 
+           
+            <div class="displayMenu">
+                <img class="mediaMenu" src="" alt="ícono menú">       <!--para agregar botón y achicar el header, de ser necesario para resolución celular-->
+            </div>    
+            <ul class="menu">
+                <li class="select"><a href="products.html">Productos</a></li>
+                <!--<li><a href="#">Ofertas</a></li>-->
+                <li><a href="Contacto.html">Contacto</a></li>
+                <li><a href="envios.html">Envios</a></li>
+            </ul>
+            <img class="carrito" onclick="verCarrito();" src="https://cdn-icons.flaticon.com/png/512/4175/premium/4175270.png?token=exp=1659575314~hmac=92aa41ee8ead892149addc382daf8bb4" alt="Carrito de compras">
+
+        </div>  
+    </div>    
+</header>
+
+
+<div class="body" id="body">
+
+   
+    
+    <div class="popupAddproduct" id="popupModified">
+        <p>Se agregó 1 elemento al carrito</p>
+    </div>
+    <div class="popupAddproduct" id="popupAdded">
+    <p>Producto agregado al carrito</p>
+    </div>
+  
+    <!--                Carrito de compras              -->
+
+    <div id="ventanaCarrito" class="ventanaCarrito">
+        <table class="tablaCarrito">
+            <thead>
+              <tr id="cartHead">  
+                <td style="font-weight: 600;">Producto</td>
+                <td style="font-weight: 600;">Cantidad</td>
+                <td style="font-weight: 600;">Precio</td>
+                <td style="font-weight: 600;">Subtotal</td>
+            </tr>    
+            </thead>
+            <div class="line"></div>
+            <tbody class="productosCarrito" id="productosCarrito">
+                <!--       Productos agregados al carrito  
+                    <tr class="productoCarrito">
+                    <td><p id="nombre" class="nombre">'+itemName+'</p></td>
+                    <td><input type="number" id="cantidadInput"class="cantidad" value="1"></td>
+                    <td><p id="precio" class="precio">'+itemPrice+'</p></td>
+                    <td><p class="subtotal"></p></td>   
+                    <td><button id ="buttonDelete" class="btn btn-danger buttonDelete" type="button">X</button></td>
+                     
+                </tr>    -->
+                        
+                        <div class="line"></div>   
+            </tbody> 
+            
+
+        </table>
+        <br>
+        <table class="totalTable">
+        <tr class="totalRow">
+            <td><p style="font-weight: 800;">Total</p> </td>
+            <td><p id="total" style="font-weight: 600;" class="total"></p> </td>
+
+        </tr>
+        </table>
+        
+        <br>
+<div class="line"></div>
+        </section>
+        <br>
+        <section class="botonesCarrito">
+            <p class="btnCerrarCarrito" onclick="ocultarCarrito();">Ocultar carrito</p>
+            <a id="btnComprar"  target="_blank"><button class="buyBtn" >Continuar compra</button></a>
+        </section>
+    </div>
+        
+
+</div>   
+
+            <!--                Titulos             -->
+
+<div class="titulos">
+
+    <div class="div__slider">  <!--BODY-->
+        <div class="slider__container"> <!--CONTAINER-ALL-->
+            <input type="radio" id="1" name="image-slide" hidden/>
+            <input type="radio" id="2" name="image-slide" hidden/>
+            <input type="radio" id="3" name="image-slide" hidden/>
+    
+            <div class="slide">
+    
+                <div class="item-slide">
+                    <a href="products.html"><img src="https://i.im.ge/2022/08/04/F3mZh0.img1.png" alt="Insumos odontológicos"></a>
+                </div>
+    
+                <div class="item-slide">
+                    <a href="products.html"><img src="https://i.im.ge/2022/08/04/F369uh.img2.png" alt="Pedidos online"></a>
+                </div>
+    
+                <div class="item-slide">
+                    <a href="contacto.html"><img src="https://i.im.ge/2022/08/04/F366QD.img3.png" alt="Envios a domicilio"></a>
+                </div>
+    
+            </div>
+    
+            <div class="pagination">
+                <label class="pagination-item" for="1">
+                    <img src="https://i.im.ge/2022/08/04/F3mZh0.img1.png">
+                </label>
+    
+                <label class="pagination-item" for="2">
+                    <img src="https://i.im.ge/2022/08/04/F369uh.img2.png">
+                </label>
+    
+                <label class="pagination-item" for="3">
+                    <img src="https://i.im.ge/2022/08/04/F366QD.img3.png">
+                </label>
+            </div>
+        </div>
+    </div>
+    
+                <!--Fin del slider-->
+                
+    <div class="lupa" id="lupa">
+        <img src="https://png.pngtree.com/png-clipart/20190921/original/pngtree-search-icon-png-image_4699282.jpg" onclick="verBuscador()" alt="icono de búsqueda" id="btnOpenSearch" class="btnOpenSearch">
+    </div>
+    <div class="searchBar" id="searchBar">  
+        <div class="buscador">
+            <input type="text"  pattern="[a-z]{1,15}" placeholder="ingrese producto o categoria" class="inputSearch" id="inputSearch">
+            <img src="https://png.pngtree.com/png-clipart/20190921/original/pngtree-search-icon-png-image_4699282.jpg" onclick="buscar();" alt="icono de búsqueda" id="btnSearch" class="btnSearch">
+        </div>    
+        <span class="closeSearch" onclick="refrescaBusqueda()"">X</span>
+    </div>
+
+   
+    
+
+
+    <h1 class="title" id="titleProductos">Productos</h1>
+
+    <div class="filtrarDiv">
+        <h3 class="subtitle__category" style="margin-left: 2.5%;">Filtrar por categorias<img onclick="verFiltros();" class="btnCategories" src="https://cdn-icons-png.flaticon.com/512/57/57164.png" alt="ver categorias"><img onclick="verFiltrosDos();" class="btnCategoriesDos" src="https://cdn-icons-png.flaticon.com/512/57/57164.png" alt="ver categorias"></h3>     <p class="verCarrito" id="btnVerCarrito" href=".header" onclick="verCarrito();">Ver carrito</p>
+    </div>
+    <p id="resultadoBusqueda" class="resultadoBusqueda"></p>
+
+    
+</div>
+<div class="container">
+
+    <!--                Lista de categorias             -->
+    
+    <div id="category__list" class="category__list">
+        <a id="all" class="category__item" category="all">Todo</a>
+        <a class="category__item" category="anestesia">Anestesia</a>
+        <a class="category__item" category="blanqueamiento">Blanqueador</a>
+        <a class="category__item" category="cementacion">Cementacion</a>
+        <a class="category__item" category="descartable">Descartable</a>
+        <a class="category__item" category="endodoncia">Endodoncia</a>
+        <a class="category__item" category="equipamiento">Equipamiento</a>
+        <a class="category__item" category="implantes">Implantes</a>
+        <a class="category__item" category="impresion">Impresion</a>
+        <a class="category__item" category="instrumental">Instrumental</a>
+        <a class="category__item" category="ionomero">Ionomeros</a>
+        <a class="category__item" category="medicamento">Medicamentos</a>
+        <a class="category__item" category="laboratorio">Laboratorio</a>
+        <a class="category__item" category="operatoria">Operatoria</a>
+        <a class="category__item" category="ortodoncia">Ortodoncia</a>
+        <a class="category__item" category="varios">Varios</a>
+        
+    
+    
+    
+    </div>
+
+    <div class="category__listMedia" id="category__listMedia" >
+        <a id="all" class="category__item" category="all">Todo</a>
+        <a class="category__item" category="anestesia">Anestesia</a>
+        <a class="category__item" category="blanqueamiento">Blanqueador</a>
+        <a class="category__item" category="cementacion">Cementacion</a>
+        <a class="category__item" category="descartable">Descartable</a>
+        <a class="category__item" category="endodoncia">Endodoncia</a>
+        <a class="category__item" category="equipamiento">Equipamiento</a>
+        <a class="category__item" category="implantes">Implantes</a>
+        <a class="category__item" category="impresion">Impresion</a>
+        <a class="category__item" category="instrumental">Instrumental</a>
+        <a class="category__item" category="ionomero">Ionomeros</a>
+        <a class="category__item" category="medicamento">Medicamentos</a>
+        <a class="category__item" category="laboratorio">Laboratorio</a>
+        <a class="category__item" category="operatoria">Operatoria</a>
+        <a class="category__item" category="ortodoncia">Ortodoncia</a>
+        <a class="category__item" category="varios">Varios</a>
+        
+    
+    
+    
+    </div>
+    <!--Catálogo de productos-->
+
+    <div class="product__list" id="product__list">
+        <!--Producto 1-->
+        <div class="product__item operatoria todo" category="operatoria">
+            <img class="image" src="https://www.dentalmedrano.com/admin/files/productos/img_1534273672282.jpg" alt=" One Coat">
+            <p class="price">$1000</p>
+            <p class="description">One Coat Bond 5ml</p>
+            <button class="addToCart">AÑADIR AL CARRITO</button>
+        </div>
+        <!--Producto 2-->
+        <div class="product__item anestesia todo" category="anestesia">
+            <img class="imagen" src="https://carrizodental.com/wp-content/uploads/2021/12/ATF50C_1.jpg" alt="Anestesia Totalcaina">
+            <p class="price">$400</p>
+            <section class="description">Totalcaina Forte x50</section>
+            <button class="addToCart">AÑADIR AL CARRITO</button>
+        </div>
+         <!--Producto 3-->
+         <div class="product__item anestesia todo" category="anestesia">
+            <img class="imagen" src="https://carrizodental.com/wp-content/uploads/2021/12/AAF50C_1.jpg" alt="Anestesia Anescart">
+            <p class="price">$1500</p>
+            <section class="description">Anescart Forte</section>
+            <button class="addToCart">AÑADIR AL CARRITO</button>
+        </div>
+        <!--Producto 4-->
+        <div class="product__item blanqueador todo" category="blanqueador">
+            <img class="imagen" src="https://cdn.dentalcremer.com.br/produtos/550/541465.jpg" alt="Blanqueador PolaOffice">
+            <p class="price">$900</p>
+            <section class="description">Polaoffice</section>
+            <button class="addToCart">AÑADIR AL CARRITO</button>
+        </div>
+        <!--Producto 5-->
+        <div class="product__item blanqueador todo" category="blanqueador">
+            <img class="imagen" src="https://www.cedent.com.ar/web/image/product.template/4237/image_1024?unique=03f79df" alt="Blanqueador Opalescense">
+            <p class="price">$200</p>
+            <section class="description">Blanqueador Opalescense</section>
+            <button class="addToCart">AÑADIR AL CARRITO</button>
+        </div>
+         <!--Producto 6-->
+         <div class="product__item cementacion todo" category="cementacion">
+            <img class="imagen" src="https://renedental.com.ar/wp-content/uploads/2020/02/SmartCem2.png" alt="Smart cem">
+            <p class="price">$625</p>
+            <section class="description">Smart cem</section>
+            <button class="addToCart">AÑADIR AL CARRITO</button>
+        </div>
+         <!--Producto 7-->
+         <div class="product__item cementacion todo" category="cementacion">
+            <img class="imagen" src="https://www.dentalmedrano.com/admin/files/productos/img_1537460786792.jpg" alt="Cemento grossman Endo G Fill">
+            <p class="price">$420</p>
+            <section class="description">Cemento grossman</section>
+            <button  class="addToCart">AÑADIR AL CARRITO</button>
+        </div>
+         <!--Producto 8-->
+         <div class="product__item descartable todo" category="descartable">
+            <img class="imagen" src="https://carrizodental.com/wp-content/uploads/2021/12/BFX50U_1-300x300.jpg" alt="Caja barbijos">
+            <p class="price">$420</p>
+            <section class="description">Barbijos tricapa x50 u</section>
+            <button class="addToCart">AÑADIR AL CARRITO</button>
+        </div>
+        
+         <!--Producto 9-->
+         <div class="product__item descartable todo" category="descartable">
+            <img src="https://pedidosfarma.vteximg.com.br/arquivos/ids/185277-300-300/Trux-Guantes-Latex-Pexaminacion-Caja-X-100-Unidades.jpg?v=637683739418800000" alt="Guantes de latex">
+            <p class="price">$420</p>
+            <section class="description">Guantes de latex x100</section>
+            <button class="addToCart">AÑADIR AL CARRITO</button>
+        </div>
+          <!--Producto 10-->
+          <div class="product__item endodoncia todo" category="endodoncia">
+            <img src="https://globaldent.com.gt/wp-content/uploads/2020/10/E-02-LIMAS-K-FILE-FLEX.jpg" alt="Limas K">
+            <p class="price">$520</p>
+            <section class="description">Limas K 1º serie</section>
+            <button class="addToCart">AÑADIR AL CARRITO</button>
+        </div>
+          <!--Producto 11-->
+          <div class="product__item endodoncia todo" category="endodoncia">
+            <img src="https://www.tudepositodental.com/7281-large_default/puntas-gutta-percha-points-meta-biomed.jpg" alt="Conos de gutta">
+            <p class="price">$889</p>
+            <section class="description">Conos de gutta</section>
+            <button class="addToCart">AÑADIR AL CARRITO</button>
+        </div>
+          <!--Producto 12-->
+          <div class="product__item ionomero todo" category="ionomero">
+            <img src="https://www.cedent.com.ar/web/image/product.template/4172/image_1024?unique=0769a61" alt="Glass liner">
+            <p class="price">$1000</p>
+            <section class="description">Glass liner base</section>
+            <button class="addToCart">AÑADIR AL CARRITO</button>
+        </div>
+          <!--Producto 13-->
+          <div class="product__item ionomero todo" category="ionomero">
+            <img src="https://www.cedent.com.ar/web/image/product.template/2185/image_1024?unique=2c6ab53" alt="Ionomero Ketac-cem">
+            <p class="price">$235</p>
+            <section class="description">Ionómero Ketac-cem</section>
+            <button class="addToCart">AÑADIR AL CARRITO</button>
+        </div>
+         <!--Producto 14-->
+         <div class="product__item laboratorio todo" category="laboratorio">
+            <img src="https://www.dentallink.com.uy/images/stories/virtuemart/product/taller-blanco11-3e93a8b4c2ade67b5115630233016101-1024-1024.jpg" alt="Bolsa yeso">
+            <p class="price">$76</p>
+            <section class="description">Yeso blanco x 3kg</section>
+            <button class="addToCart">AÑADIR AL CARRITO</button>
+        </div>
+         <!--Producto 15-->
+         <div class="product__item laboratorio todo" category="laboratorio">
+            <img src="https://dentalshop.com.ar/wp-content/uploads/2019/10/Cera-rosa-premium-x-200-gr.jpg" alt="Cera rosa para modelar">
+            <p class="price">$55</p>
+            <section class="description">Cera rosa x 100g </section>
+            <button class="addToCart">AÑADIR AL CARRITO</button>
+        </div>
+         <!--Producto 16-->
+         <div class="product__item impresion todo" category="impresion">
+            <img src="data:image/jpeg;base64,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" alt="Alginato Cavex">
+            <p class="price">$150</p>
+            <section class="description">Alginato Cavex ortho </section>
+            <button class="addToCart">AÑADIR AL CARRITO</button>
+        </div>
+         <!--Producto 17-->
+         <div class="product__item impresion todo" category="impresion">
+            <img src="http://d3ugyf2ht6aenh.cloudfront.net/stores/001/025/954/products/speedex_putty_1000x100011-e9be39ab440435eec316021760912446-640-0.jpg" alt="Masa Speedex">
+            <p class="price">$98</p>
+            <section class="description">Speedex masa </section>
+            <button class="addToCart">AÑADIR AL CARRITO</button>
+        </div>
+        <!--Producto 18-->
+        <div class="product__item impresion todo" category="impresion">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRXjvdP1fXnapK0ohTW6jmiog9Fo1vVvYWY2j-aP2EDBR6ox68mqwwglogl2K8dN5XXPs&usqp=CAU" alt="Edta-c">
+            <p class="price">$3655</p>
+            <section class="description">Edta-c </section>
+            <button class="addToCart">AÑADIR AL CARRITO</button>
+        </div>
+        <!--Producto 19-->
+        <div class="product__item impresion todo" category="impresion">
+            <img src="data:image/jpeg;base64,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" alt="Iodoformo Densell">
+            <p class="price">$1540</p>
+            <section class="description">Iodoformo </section>
+            <button class="addToCart">AÑADIR AL CARRITO</button>
+        </div>
+        <!--Producto 20-->
+        <div class="product__item operatoria todo" category="operatoria">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYGMJ9pFrM-BKzRR44yqao8AnMtDjav9uMzw&usqp=CAU" alt="Adhesivo Monobond">
+            <p class="price">$235</p>
+            <section class="description">Monobond</section>
+            <button class="addToCart">AÑADIR AL CARRITO</button>
+        </div>
+        <!--Producto 21-->
+        <div class="product__item ortodoncia todo" category="ortodoncia">
+            <img src="https://i0.wp.com/orthoea.com.ar/wp-content/uploads/2021/06/213123.jpg?fit=800%2C800&ssl=1" alt="Arcos de niti">
+            <p class="price">$115</p>
+            <section class="description">Arcos de NITI</section>
+            <button class="addToCart">AÑADIR AL CARRITO</button>
+        </div>
+        <!--Producto 22-->
+        <div class="product__item ortodoncia todo" category="ortodoncia">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFo_5JezJWry28plXmhF-LvN70fMYkTSgAew&usqp=CAU" alt="Bastones ligadura">
+            <p class="price">$487</p>
+            <section class="description">Bastones de ligadura</section>
+            <button class="addToCart">AÑADIR AL CARRITO</button>
+        </div>
+           <!--Producto 23-->
+           <div class="product__item varios todo" category="varios">
+            <img src="data:image/jpeg;base64,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" alt="Lubricante Maquira">
+            <p class="price">$590</p>
+            <section class="description">Lubricante Maquira</section>
+            <button class="addToCart">AÑADIR AL CARRITO</button>
+        </div>
+           <!--Producto 24-->
+           <div class="product__item varios todo" category="varios">
+            <img src="https://www.cedent.com.ar/web/image/product.template/4237/image_1024?unique=03f79df" alt="Novacid">
+            <p class="price">$2500</p>
+            <section class="description">Novacid</section>
+            <button class="addToCart">AÑADIR AL CARRITO</button>
+        </div>
+         <!--Producto 25-->
+         <div class="product__item ortodoncia todo" category="ortodoncia">
+            <img src="https://www.cedent.com.ar/web/image/product.template/2159/image_1024?unique=17f37d1" alt=Z250">
+            <p class="price">$2500</p>
+            <section class="description">Jeringa Z250</section>
+            <button class="addToCart">AÑADIR AL CARRITO</button>
+        </div>
+         <!--Producto 26-->
+         <div class="product__item ortodoncia todo" category="ortodoncia">
+            <img src="https://disden.com.ar/wp-content/uploads/2020/06/Bracket-metalico-1-300x300.jpg">
+            <p class="price">$590</p>
+            <section class="description">Bracket metálico IMD</section>
+            <button class="addToCart">AÑADIR AL CARRITO</button>
+        </div>
+        <!--Producto 27-->
+        <div class="product__item descartable todo" category="descartable">
+            <img src="https://cf.shopee.com.ar/file/d3ff0df2ba3413ba4f946462f6b3ca56_tn" alt="compresas de colores">
+            <p class="price">$590</p>
+            <section class="description">Compresas x50</section>
+            <button class="addToCart">AÑADIR AL CARRITO</button>
+        </div>
+         <!--Producto 28-->
+        <div class="product__item descartable todo" category="descartable">
+            <img src="https://d3ugyf2ht6aenh.cloudfront.net/stores/895/251/products/insum-5-13_-61-b383422896e6b9899416388145371053-1024-1024.jpg" alt="compresas x100">
+            <p class="price">$590</p>
+            <section class="description">Compresas K-tex x100</section>
+            <button class="addToCart">AÑADIR AL CARRITO</button>
+        </div>
+        <!--Producto 29-->
+        <div class="product__item varios todo" category="varios">
+            <img src="https://grimbergdentales.vteximg.com.br/arquivos/ids/162593-1000-1000/espejito.jpg?v=637624056721170000" alt="caja de espejos x12">
+            <p class="price">$590</p>
+            <section class="description">Espejos x12</section>
+            <button class="addToCart">AÑADIR AL CARRITO</button>
+        </div>
+         <!--Producto 30-->
+         <div class="product__item descartable todo" category="descartable">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbuUojXlel7grQnhblmlzoMqwwZoKjsW0tMA&usqp=CAU" alt="rollos de algodón">
+            <p class="price">$590</p>
+            <section class="description">Algodón en rollos</section>
+            <button class="addToCart">AÑADIR AL CARRITO</button>
+        </div>
+         <!--Producto 31-->
+         <div class="product__item varios todo" category="varios">
+            <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBwgHBgkIBwgVFQkXGCAbFxgYGCcgGhoiKh0iFx0fHR0eHSglHyMnJh8fIjEhLSktLjouHh81OjMtNygvOisBCgoKDQ0OGg4NFTcZFxktKy0tLS0rKystKy03KysrKysrKysrKysrKy0rLSstKysrKysrKysrKysrKysrKysrK//AABEIAOEA4QMBIgACEQEDEQH/xAAbAAEBAAIDAQAAAAAAAAAAAAAABgIHAwQFAf/EAD4QAQABAQUEBQYMBwEAAAAAAAABAgMEBQYRBxIhsjFBUbHCE0JDY3N0JTIzNDU2U1RhcXKhFiIkRWJkgRX/xAAWAQEBAQAAAAAAAAAAAAAAAAAAAQL/xAAZEQEBAQEBAQAAAAAAAAAAAAAAATECIRH/2gAMAwEAAhEDEQA/AN4gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMLW1s7GnetbSKae2Z0j92aLz/FVtf8ABLvFjvRv1VzHDq3Y6/1SlvxZ6sqK6bSmKqKomntjoZPFyvP9LfKIo3Ypt7SIj/u91fm9pUAAAAAAAAAAAAAAAAAAAAAAAAAAERnm81WWNYbuRG9TRVPGOE6zTHVMaabv7rdA58q0zDh8ernmS4sexkm+TebPEaa6Y3/K706dHGOjT8NFMjNnUxNWLaT59PZ2T2LMiACgAAAAAAAAAAAAAAAAAAAAAAAA19n/AE/iLD9fsp5obBa/2gR8P3GdPRTzJcWO5s5q3q8W/XT3StEVs4+Niv66e6VqRABQAAAAAAAAAAAAAAAAAAAAAAAAQGf6ppx+4VU9Pkp5oX6Bz9Hw9cKtOPk6uaEuLHZ2c6xXi3DzqO6e1aorZz8fFeHnUd0rUiACgAAAAAAAAAAAAAAAAAAAAAAAAgs/aTj2HxP2dXNC9QefKd7HbhHq6uaEpHNs4+PisaedR2dlXYtkXs74W2Kx/lR169VX4LQgAKAAAAAAAAAAAAAAAAAAAAAAAACGz3r/AOxcePo6uaFyic72dNpjlwoq108hbTw7ad2Y75S4OXZ7xqxKevWjxdqxSOR6KLLEMasbOP5Ka6IjXp6KulXEABQAAAAAAAAAAAAAAAAAAAAAAAARedJmMew+afu947qFojM6fTlw93vHgS4scuSOOKY/PX5SnulXJDI1W9iWPcPSU90q8mF0AVAAAAAAAAAAAAAAAAAAAAAAAABGZz4Y7h/u947qFmi86fT2Hx/r3juoTrCOTIcaYhj3taeWVgjsgzrfsen1tPKsSYtAFQAAAAAAAAAAAAAAAAAAAAAAAARWdPrBh3u9v4FqjM5064/h2v2Fv4GesWMsgfPMc9rT3SsUds/jS9Y37SnulYrMLoAqAAAAAAAAAAAAAAAAAAAAAAAACOzjPw/h0aegt+6hYo/Nka5jw73e38DPWLHzZ/8AOMa9pTyrFG7PPlMZn1scqyWYXQBUAAAAAAAAAAAAAAAAAAAAAAAAEfmuNczYdE/d7fwLBH5q+suH+72/gZ6xZrDZx/d/axyrNG7NvkMUn1scsLJZhdAFQAAAAAAAAAAAAAAAAAAAAAAAASOaKdcyXGey723fQrk1mLDr9eMXu97ul337KLG0on+aImJqmNOmY4cO1nrFjo7NPmuJ+28ELNMZFwm/YVdL5TiNlFNddpvREVRPDdiOr8lOswoAqAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP/Z" alt="mango para espejo">
+            <p class="price">$590</p>
+            <section class="description">Mango para espejo</section>
+            <button class="addToCart">AÑADIR AL CARRITO</button>
+        </div>
+        <!--Producto 32-->
+        <div class="product__item ortodoncia todo" category="ortodoncia">
+            <img src="http://d3ugyf2ht6aenh.cloudfront.net/stores/001/025/954/products/brackets-ceramicos-imd1-a5be8fec1709437a8416264667817734-640-0.jpg" alt="Caso cerámico IMD">
+            <p class="price">$590</p>
+            <section class="description">Bracket cerámico IMD</section>
+            <button class="addToCart">AÑADIR AL CARRITO</button>
+        </div>
+        <!--Producto 33-->
+        <div class="product__item ortodoncia varios todo" category="varios">
+            <img src="https://carrizodental.com/wp-content/uploads/2021/12/ABRDCUL_1.jpg" alt="abre boca">
+            <p class="price">$590</p>
+            <section class="description">Abre boca expandex</section>
+            <button class="addToCart">AÑADIR AL CARRITO</button>
+        </div>
+        <!--Producto 34-->
+        <div class="product__item ortodoncia varios todo" category="varios">
+            <img src="https://www.marrodent.pl/wp-content/uploads/2016/07/GC_GRADIA_DIRECT_ZESTAW_WPROWADZAJACY.jpg" alt="jeringa composite Gc">
+            <p class="price">$590</p>
+            <section class="description">Composite GC</section>
+            <button class="addToCart">AÑADIR AL CARRITO</button>
+        </div>
+        <!--Producto 34-->
+        <div class="product__item ortodoncia ortodoncia todo" category="otodoncia">
+            <img src="https://grimbergdentales.vteximg.com.br/arquivos/ids/164946-1000-1000/tuboRothSimpleee.jpg?v=637871066881330000" alt="jeringa composite Gc">
+            <p class="price">$590</p>
+            <section class="description">Tubo simple</section>
+            <button class="addToCart">AÑADIR AL CARRITO</button>
+        </div>
+
+        
+        
+        
+        
+    </div> 
+    
+    
+
+</div>
+<p class="btnVerTodo" id="btnVerTodo" onclick="verTodo()" >Volver al inicio</p>
+</div>
+
+<footer>
+    <article class="footer__container">
+        <div  class="footer__container">
+            <p class="textoFooter">Desarrollado por gmarionahuel@gmail.com</p>
+        </div>
+    
+    </article>
+
+</footer>
+<script src="index.js"></script>
+</body>
