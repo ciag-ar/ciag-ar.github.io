@@ -435,7 +435,7 @@ text-align: center;
     max-height: 13px;       
 }
  .titulos .verCarrito{
-    transform: translateX(45rem);
+    transform: translateX(50rem);
     float:right;
     font-weight: 600;
     font-size: 12px;
